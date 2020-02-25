@@ -1,29 +1,37 @@
 # Learning Certified Individually Fair Representations <a href="https://www.sri.inf.ethz.ch/"><img width="100" alt="portfolio_view" align="right" src="http://safeai.ethz.ch/img/sri-logo.svg"></a>
 
-LCIFR is a state-of-the art system for training neural networks with
- provable certificates of individual fairness.
+![alt text](https://raw.githubusercontent.com/eth-sri/lcifr/master/overview.png)
+
+LCIFR is a state-of-the art system for training neural networks with provable
+certificates of individual fairness.
+LCIFR enables the definition of individual fairness constraints via
+interpretable logical formulas, enforces these constraints by mapping similar
+individuals close to each other in latent space, and leverages this proximity
+in latent space to compute certificates of equal outcome for all similar
+individuals.
+
 LCIFR leverages the theoretical framework introduced by
- [McNamara et al.](https://arxiv.org/abs/1710.04394) which partitions the
- task of learning fair representations into three parties:
+[McNamara et al.](https://arxiv.org/abs/1710.04394) which partitions the task
+of learning fair representations into three parties:
 - **data regulator**: defines a fairness property for the particular task at
- hand
+hand
 - **data producer**: processes sensitive user data and transforms it into a
- latent representation
+latent representation
 - **data consumer**: performs predictions based on the new representation
 
 The key idea behind LCIFR is to learn a representation that provably maps
- similar individuals to latent representations at most epsilon apart in
- l-infinity distance, enabling data consumers to certify individual fairness by
- proving epsilon-robustness of their classifier.
-Furthermore, LCIFR allows data regulators to define rich similarity notions via logical
- constraints.
+similar individuals to latent representations at most epsilon apart in
+l-infinity distance, enabling data consumers to certify individual fairness by
+proving epsilon-robustness of their classifier.
+Furthermore, LCIFR allows data regulators to define rich similarity notions via
+logical constraints.
  
-This implementation of LCIFR can be used as a library compatible with
- PyTorch and contains all code, datasets and preprocessing pipelines
-  necessary to reproduce the results from our paper.
+This implementation of LCIFR can be used as a library compatible with PyTorch
+and contains all code, datasets and preprocessing pipelines necessary to
+reproduce the results from [our paper](https://arxiv.org/pdf/2002.10312.pdf).
 This system is developed at the
- [SRI Lab, Department of Computer Science, ETH Zurich](https://www.sri.inf.ethz.ch)
- as part of the [Safe AI project](http://safeai.ethz.ch).
+[SRI Lab, Department of Computer Science, ETH Zurich](https://www.sri.inf.ethz.ch)
+as part of the [Safe AI project](http://safeai.ethz.ch).
 
 ## Setup Instructions
 
@@ -33,13 +41,13 @@ $ git clone --recurse-submodules https://github.com/eth-sri/lcifr.git
 ```
 
 Create a [conda](https://www.anaconda.com/distribution/#download-section)
- environment with the required packages
+environment with the required packages
 ```bash
 $ conda env create -f environment.yml
 ```
 
 We use the GUROBI solver for certification. To run our code, apply for and
- download an [academic GUROBI License](https://www.gurobi.com/academia/academic-program-and-licenses).
+download an [academic GUROBI License](https://www.gurobi.com/academia/academic-program-and-licenses).
 
 ## Structure
 
@@ -76,7 +84,7 @@ Activate the conda environment and set the PYTHONPATH
 $ source setup.sh
 ```
 
-Enter the experiment directory
+Enter the experiments directory
 ```bash
 $ cd code/experiments
 ```
@@ -90,29 +98,28 @@ $ ./attribute.sh
 $ ./quantiles.sh
 ```
 
-Run the end-to-end framework on a large network
-```bash
-$ ./scaling.sh
-```
-
-Run the end-to-end framework for transfer learning
-```bash
-$ ./transfer.sh
-```
-
+The trained models, logs and certification results are stored in the
+directories `models`, `logs` and `results` respectively under project root.
 Once started, the training progress can be monitored in Tensorboard with
 ```bash
 $ tensorboard --logdir logs
 ```
 
+In a similar way, the experiments on transfer learning can be reproduced with
+```bash
+$ cd code/experiments
+$ ./transfer.sh
+```
+
 ## Citing This Work
 
 ```
-@incollection{ruoss2020learning,
+@misc{ruoss2020learning,
     title = {Learning Certified Individually Fair Representations},
     author = {Ruoss, Anian and Balunovic, Mislav and Fischer, Marc and Vechev, Martin},
-    year = {2020}
-}	
+    year = {2020},
+    url = {https://arxiv.org/abs/2002.10312}
+}
 ```
 
 ## Contributors
@@ -122,7 +129,6 @@ $ tensorboard --logdir logs
 * [Marc Fischer](https://www.sri.inf.ethz.ch/people/marc)
 * [Martin Vechev](https://www.sri.inf.ethz.ch/people/martin)
 
-## License and Copyright
+## Copyright
 
 * Copyright (c) 2020 [Secure, Reliable, and Intelligent Systems Lab (SRI), ETH Zurich](https://www.sri.inf.ethz.ch)
-* Licensed under the [Apache License](http://www.apache.org/licenses)

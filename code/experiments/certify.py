@@ -295,9 +295,8 @@ for idx, (data_batch, targets_batch, _) in enumerate(test_loader):
         with open(results_file, 'a') as f:
             f.write(
                 f'[n={len(all_l_inf):d}] avg time: {np.mean(all_times):.4f} s, '
-                f'l_inf: {np.mean(all_l_inf):.4f}, '
                 f'certified: {ver / (idx + 1):.4f}, '
-                f'correct:{corr / (idx + 1):.4f}, '
-                f'balanced: {balanced_accuracy:.4f}\n'
+                f'accuracy: {corr / (idx + 1):.4f}, '
+                f'balanced accuracy: {balanced_accuracy:.4f}\n'
             )
 
