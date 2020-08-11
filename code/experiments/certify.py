@@ -128,7 +128,7 @@ decoder_layers = layers[(len(layers) - 1) // 2:]
 project_root = path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
 results_file = path.join(
     project_root, 'results', args.models_dir.split('models/')[1],
-    args.label if args.label else '',
+    args.label if args.label else '', ('robust_' if args.adversarial else '') +
     'complete.txt' if args.complete else 'incomplete.txt'
 )
 makedirs(path.dirname(results_file), exist_ok=True)
