@@ -28,7 +28,7 @@ logical constraints.
  
 This implementation of LCIFR can be used as a library compatible with PyTorch
 and contains all code, datasets and preprocessing pipelines necessary to
-reproduce the results from [our paper](https://arxiv.org/pdf/2002.10312.pdf).
+reproduce the results from [our NeurIPS 2020 paper](https://arxiv.org/pdf/2002.10312.pdf).
 This system is developed at the
 [SRI Lab, Department of Computer Science, ETH Zurich](https://www.sri.inf.ethz.ch)
 as part of the [Safe AI project](http://safeai.ethz.ch).
@@ -114,11 +114,11 @@ $ ./transfer.sh
 ## Citing This Work
 
 ```
-@misc{ruoss2020learning,
+@inproceedings{ruoss2020learning,
     title = {Learning Certified Individually Fair Representations},
     author = {Ruoss, Anian and Balunovic, Mislav and Fischer, Marc and Vechev, Martin},
-    year = {2020},
-    url = {https://arxiv.org/abs/2002.10312}
+    booktitle = {Advances in Neural Information Processing Systems 33},
+    year = {2020}
 }
 ```
 
